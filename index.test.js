@@ -1,4 +1,5 @@
-const multiply= require("./index")
+const {multiply, fetchData}= require("./index")
+
 
 //test suite 
 
@@ -39,4 +40,26 @@ test("Array Matcher", ()=>{
         'Running', "Coding", "Eating", "Cooking", "Sleeping"
     ]
     expect(toDoList).toContain("Eating")
+})
+
+test('the data is sucessfully resolve using promises', ()=>{
+    return fetchData().then((data)=>{
+        expect(data).toBe("sucessfully resolve")
+    })
+})
+
+test('the data is sucessfully resolve using async await', async()=>{
+  const data = await fetchData();
+  expect(data).toBe("sucessfully resolve")
+})
+
+test("fetch fails", async()=>{
+    expect.assertions(1);
+    try {
+        await fetchData(true)
+        
+    } catch (error) {
+      expect(error).toBe("error occured")  
+    }
+
 })
