@@ -59,7 +59,18 @@ test("fetch fails", async()=>{
         await fetchData(true)
         
     } catch (error) {
-      expect(error).toBe("error occured")  
+      expect(error).toBe("error occurred")  
     }
 
 })
+
+test("fetch fails with an error using rejects matcher", async () => {
+    await expect(fetchData(true)).rejects.toMatch("error occurred");
+  });
+  
+  test("fetch fails with an error using promises and .catch",async () => {
+    expect.assertions(1);
+    return fetchData(true).catch((error) => {
+      expect(error).toMatch("error occurred");
+    });
+  });

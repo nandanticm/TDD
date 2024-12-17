@@ -7,7 +7,7 @@ const fetchData =(shouldFail=false)=>{
     return new Promise((resolve , reject)=>{
         setTimeout(()=>{
             if(shouldFail){
-                reject("error occured")
+                reject("error occurred")
             }
             else{
                 resolve("sucessfully resolve")
