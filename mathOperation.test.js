@@ -14,4 +14,18 @@ describe('Math Operations', () => {
             expect(add(-2, -3)).toBe(-5);
         });
     });
+      // Test cases for divide
+      describe('divide', () => {
+        test('should return the division of two positive numbers', () => {
+            expect(divide(6, 3)).toBe(2);
+        });
+
+        test('should return a negative result when dividing by a negative number', () => {
+            expect(divide(6, -3)).toBe(-2);
+        });
+
+        test('should throw an error when dividing by zero', () => {
+            expect(() => divide(6, 0)).toThrow('Division by zero is not allowed');
+        });
+    });
 });
